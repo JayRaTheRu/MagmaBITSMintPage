@@ -5,48 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magma BITS By: MassterWorks</title>
     <style>
-        body {<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magma BITS By: MassterWorks</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url("Background.webp");
-            background-size: cover;
-            background-position: top left;
-            background-repeat: no-repeat;
-            position: relative;
-        }
-        .container {
-            width: 30%;
-            margin: 450px auto 0;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            color: lightskyblue;
-        }
-        .circle-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            position: absolute;
-            top: -435px;
-            left: 20px;
-        }
-        .circle-image img {
-            width: 100%;<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magma BITS By: MassterWorks</title>
-    <style>
         body {
             margin: 0;
             padding: 0;
@@ -94,7 +52,14 @@
             border: 2px solid white;
             display: inline-block;
             margin-top: 10px;
-            width: 100%; /* Make buttons full width */
+        }
+        .connect-wallet-button {
+            background-color: #4caf50;
+            color: white;
+        }
+        .disconnect-wallet-button {
+            background-color: #ff0000;
+            color: white;
         }
         .mint-button {
             background-color: black;
@@ -103,6 +68,7 @@
             border-image: linear-gradient(to right, red, orange, darkorange);
             border-image-slice: 1;
         }
+
         .social-links {
             position: absolute;
             top: 140px;
@@ -133,35 +99,6 @@
         .small-text {
             font-size: smaller;
         }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                width: 80%;
-                margin: 100px auto 0;
-            }
-            .circle-image {
-                width: 80px;
-                height: 80px;
-                top: -200px;
-                left: 10px;
-            }
-            .social-links {
-                top: 100px;
-                left: 10px;
-                margin-top: -220px;
-            }
-            h1 {
-                font-size: 20px;
-                margin: 20px;
-            }
-            .connect-wallet-button,
-            .disconnect-wallet-button,
-            .mint-button {
-                padding: 15px 20px;
-                font-size: 20px;
-                margin-top: 10px;
-            }
-        }
     </style>
     <!-- MetaMask Script -->
     <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
@@ -174,8 +111,12 @@
 </div>
 <div class="social-links">
     <a href="https://twitter.com/MASSTERWORKS" target="_blank">TwitterX</a>
-    <a href="https://massterworks.printify.me/products" target="_blank">Merch Store</a>
-    <a href="https://www.instagram.com/massterworks" target="_blank">Instagram</a>
+    <a href="https://massterworks.printify.me/products" target="_blank"
+    >Merch Store</a
+    >
+    <a href="https://www.instagram.com/massterworks" target="_blank"
+    >Instagram</a
+    >
 </div>
 <div class="container">
     <h1>
