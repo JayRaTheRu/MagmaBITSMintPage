@@ -16,35 +16,58 @@
             position: relative;
         }
         .container {
-            width: 90%;
-            max-width: 600px; /* Set a maximum width for larger screens */
-            margin: 150px auto 0;
+            width: 30%;
+            margin: 450px auto 0;
             padding: 25px;
             border-radius: 10px;
             text-align: center;
             color: lightskyblue;
         }
         .circle-image {
-            width: 80px; /* Adjust size for smaller screens */
-            height: 80px; /* Adjust size for smaller screens */
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             overflow: hidden;
             position: absolute;
-            top: -200px; /* Adjust position */
-            left: 10px; /* Adjust position */
+            top: -435px;
+            left: 20px;
         }
         .circle-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        .connect-wallet-container {
+            margin-bottom: 20px;
+        }
+        .connect-wallet-button,
+        .disconnect-wallet-button,
+        .mint-button {
+            padding: 20px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            border: 2px solid white;
+            display: inline-block;
+            margin-top: 10px;
+            width: 100%; /* Make buttons full width */
+        }
+        .mint-button {
+            background-color: black;
+            color: white;
+            border: 4px solid transparent;
+            border-image: linear-gradient(to right, red, orange, darkorange);
+            border-image-slice: 1;
+        }
         .social-links {
             position: absolute;
-            top: 100px; /* Adjust position */
-            left: 10px; /* Adjust position */
+            top: 140px;
+            left: 30px;
             text-align: left;
             color: white;
-            margin-top: -220px; /* Adjust margin */
+            margin-top: -460px;
         }
         .social-links a {
             display: block;
@@ -61,42 +84,40 @@
             margin-top: 30px;
         }
         h1 {
-            font-size: 20px; /* Adjust font size */
-            margin: 20px; /* Adjust margin */
+            font-size: 25px;
+            margin: 30px;
             color: rgb(255, 255, 255);
         }
-        .connect-wallet-container {
-            margin-bottom: 20px;
+        .small-text {
+            font-size: smaller;
         }
-        .connect-wallet-button,
-        .disconnect-wallet-button,
-        .mint-button {
-            padding: 15px 20px; /* Adjust padding */
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 20px; /* Adjust font size */
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
-            border: 2px solid white;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .connect-wallet-button,
-        .disconnect-wallet-button {
-            width: 100%; /* Make buttons full width */
-        }
-        .mint-button {
-            background-color: black;
-            color: white;
-            border: 4px solid transparent;
-            border-image: linear-gradient(to right, red, orange, darkorange);
-            border-image-slice: 1;
-            width: 100%; /* Make buttons full width */
-        }
+
         @media screen and (max-width: 768px) {
             .container {
                 width: 80%;
-                margin: 100px auto 0; /* Adjust margin for better positioning */
+                margin: 100px auto 0;
+            }
+            .circle-image {
+                width: 80px;
+                height: 80px;
+                top: -200px;
+                left: 10px;
+            }
+            .social-links {
+                top: 100px;
+                left: 10px;
+                margin-top: -220px;
+            }
+            h1 {
+                font-size: 20px;
+                margin: 20px;
+            }
+            .connect-wallet-button,
+            .disconnect-wallet-button,
+            .mint-button {
+                padding: 15px 20px;
+                font-size: 20px;
+                margin-top: 10px;
             }
         }
     </style>
