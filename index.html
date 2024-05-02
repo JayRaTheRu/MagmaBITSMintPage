@@ -11,31 +11,51 @@
             font-family: Arial, sans-serif;
             background-image: url("Background.webp");
             background-size: cover;
-            background-position: top left;
+            background-position: center;
             background-repeat: no-repeat;
-            position: relative;
         }
         .container {
-            width: 30%;
-            margin: 450px auto 0;
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
             padding: 25px;
             border-radius: 10px;
             text-align: center;
             color: lightskyblue;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background */
         }
         .circle-image {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             overflow: hidden;
-            position: absolute;
-            top: -435px;
-            left: 20px;
+            margin-top: -50px; /* Adjust margin-top instead of absolute positioning */
+            margin-left: auto;
+            margin-right: auto;
         }
         .circle-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s;
+        }
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            font-size: 25px;
+            margin: 20px 0;
+            color: rgb(255, 255, 255);
         }
         .connect-wallet-container {
             margin-bottom: 20px;
@@ -43,14 +63,14 @@
         .connect-wallet-button,
         .disconnect-wallet-button,
         .mint-button {
-            padding: 20px 30px;
+            width: 100%;
+            padding: 15px 20px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 25px;
+            font-size: 20px;
             text-decoration: none;
             transition: background-color 0.3s, color 0.3s;
             border: 2px solid white;
-            display: inline-block;
             margin-top: 10px;
         }
         .connect-wallet-button {
@@ -68,36 +88,16 @@
             border-image: linear-gradient(to right, red, orange, darkorange);
             border-image-slice: 1;
         }
-
-        .social-links {
-            position: absolute;
-            top: 140px;
-            left: 30px;
-            text-align: left;
-            color: white;
-            margin-top: -460px;
-        }
-        .social-links a {
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.3s;
-        }
-        .social-links a:hover {
-            transform: scale(1.1);
-        }
         h4 {
             color: rgb(68, 149, 243);
             margin-top: 30px;
         }
-        h1 {
-            font-size: 25px;
-            margin: 30px;
-            color: rgb(255, 255, 255);
-        }
-        .small-text {
-            font-size: smaller;
+        @media screen and (max-width: 768px) {
+            .circle-image {
+                width: 80px;
+                height: 80px;
+                margin-top: -40px;
+            }
         }
     </style>
     <!-- MetaMask Script -->
@@ -111,12 +111,8 @@
 </div>
 <div class="social-links">
     <a href="https://twitter.com/MASSTERWORKS" target="_blank">TwitterX</a>
-    <a href="https://massterworks.printify.me/products" target="_blank"
-    >Merch Store</a
-    >
-    <a href="https://www.instagram.com/massterworks" target="_blank"
-    >Instagram</a
-    >
+    <a href="https://massterworks.printify.me/products" target="_blank">Merch Store</a>
+    <a href="https://www.instagram.com/massterworks" target="_blank">Instagram</a>
 </div>
 <div class="container">
     <h1>
