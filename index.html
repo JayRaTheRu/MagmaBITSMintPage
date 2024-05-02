@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magma BITS By: MassterWorks</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("https://github.com/JayRaTheRu/MagmaBITSMintPage/blob/0703e2e581a1054b1a5c03e692d859cd7c11255f/Background.webp");
+            background-size: cover;
+            background-position: top left;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .container {
+            width: 30%;
+            margin: 450px auto 0;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            color: lightskyblue;
+        }
+        .circle-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: -435px;
+            left: 20px;
+        }
+        .circle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .connect-wallet-container {
+            margin-bottom: 20px;
+        }
+        .connect-wallet-button,
+        .disconnect-wallet-button,
+        .mint-button {
+            padding: 20px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            border: 2px solid white;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .connect-wallet-button {
+            background-color: #4caf50;
+            color: white;
+        }
+        .disconnect-wallet-button {
+            background-color: #ff0000;
+            color: white;
+        }
+        .mint-button {
+            background-color: black;
+            color: white;
+            border: 4px solid transparent;
+            border-image: linear-gradient(to right, red, orange, darkorange);
+            border-image-slice: 1;
+        }
+
+        .social-links {
+            position: absolute;
+            top: 140px;
+            left: 30px;
+            text-align: left;
+            color: white;
+            margin-top: -460px;
+        }
+        .social-links a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s;
+        }
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        h4 {
+            color: rgb(68, 149, 243);
+            margin-top: 30px;
+        }
+        h1 {
+            font-size: 25px;
+            margin: 30px;
+            color: rgb(255, 255, 255);
+        }
+        .small-text {
+            font-size: smaller;
+        }
+    </style>
+    <!-- MetaMask Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
+</head>
+<body>
+<div class="circle-image">
+    <a href="https://twitter.com/MASSTERWORKS" target="_blank">
+        <img src="https://github.com/JayRaTheRu/MagmaBITSMintPage/blob/0703e2e581a1054b1a5c03e692d859cd7c11255f/WorkssPFP.jpg" alt="MassterWorks" />
+    </a>
+</div>
+<div class="social-links">
+    <a href="https://twitter.com/MASSTERWORKS" target="_blank">TwitterX</a>
+    <a href="https://massterworks.printify.me/products" target="_blank"
+    >Merch Store</a
+    >
+    <a href="https://www.instagram.com/massterworks" target="_blank"
+    >Instagram</a
+    >
+</div>
+<div class="container">
+    <h1>
+        <span style="font-size: smaller">ON TESTNET |</span>
+        By: @MassterWorks
+    </h1>
+    <div class="connect-wallet-container">
+        <button class="connect-wallet-button">Connect Wallet</button>
+    </div>
+    <div id="mint-buttons" style="display: none;">
+        <button class="mint-button">Mint 1 Magma BIT</button>
+        <button class="mint-button">Mint 5 Magma BITS</button>
+    </div>
+    <button class="disconnect-wallet-button" style="display: none;">Disconnect Wallet</button>
+    <p id="wallet-address" style="display: none"></p>
+    <h4>Ethereum Tip Jar: MassterWorks.eth</h4>
+</div>
+
+<script>
+    const connectButton = document.querySelector(".connect-wallet-button");
+    const disconnectButton = document.querySelector(".disconnect-wallet-button");
+    const mintButtons = document.querySelectorAll(".mint-button");
+    const walletAddress = document.getElementById("wallet-address");
+    const mintButtonsContainer = document.getElementById("mint-buttons");
+
+    // Function to handle wallet connection
+    async function connectWallet() {
+        try {
+            // Detect MetaMask provider
+            const provider = await detectEthereumProvider();
+
+            if (provider) {
+                // Request user to connect their MetaMask wallet
+                await provider.request({ method: 'eth_requestAccounts' });
+
+                // Get the selected account
+                const accounts = await ethereum.request({ method: 'eth_accounts' });
+                const selectedAccount = accounts[0];
+
+                // Display connected wallet address
+                walletAddress.textContent = `Connected Wallet: ${selectedAccount}`;
+                walletAddress.style.display = "block";
+                connectButton.style.display = "none";
+                disconnectButton.style.display = "inline-block";
+                mintButtonsContainer.style.display = "block";
+            } else {
+                // MetaMask is not installed
+                alert("MetaMask extension not detected. Please install MetaMask to use this feature.");
+            }
+        } catch (error) {
+            console.error(error);
+            // Handle errors
+            alert("An error occurred while connecting to MetaMask. Please try again.");
+        }
+    }
+
+    // Function to handle wallet disconnection
+    function disconnectWallet() {
+        ethereum.request({ method: 'eth_accounts' })
+            .then(accounts => {
+                // Disconnect MetaMask wallet
+                if (accounts.length > 0) {
+                    ethereum.request({ method: 'eth_requestAccounts' });
+                }
+            })
+            .catch(console.error);
+
+        walletAddress.textContent = ""; // Clear wallet address
+        walletAddress.style.display = "none";
+        connectButton.style.display = "inline-block";
+        disconnectButton.style.display = "none";
+        mintButtonsContainer.style.display = "none";
+        // Reload the page after disconnecting wallet
+        location.reload();
+    }
+
+    // Event listeners
