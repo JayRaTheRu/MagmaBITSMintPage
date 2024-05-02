@@ -74,9 +74,13 @@
             top: 140px;
             left: 30px;
             text-align: left;
-            color: linear-gradient(to right, red, orange, darkorange);
+            background: linear-gradient(to right, red, orange, darkorange);
+            -webkit-background-clip: text; /* For Safari */
+            background-clip: text;
+            color: transparent; /* Hide the original text */
             margin-top: -460px;
         }
+
         .social-links a {
             display: block;
             margin-bottom: 10px;
